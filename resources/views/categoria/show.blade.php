@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Detalle Categoria</h1>
 @stop
 
 @section('content')
@@ -13,10 +13,7 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Categoria</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('categorias.index') }}"> {{ __('Back') }}</a>
+{{--                            <span class="card-title">{{ __('Show') }} Categoria</span>--}}
                         </div>
                     </div>
 
@@ -30,8 +27,11 @@
                             <strong>Descripcion:</strong>
                             {{ $categoria->descripcion }}
                         </div>
-
+                        <div class="float-right">
+                            <a class="btn btn-primary btn-sm" href="{{ route('categorias.index') }}"> {{ __('Regresar') }}</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
