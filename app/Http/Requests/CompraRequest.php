@@ -24,6 +24,7 @@ class CompraRequest extends FormRequest
         return [
 			'num_compra' => 'required|string',
 			'proveedores_id' => 'required',
+            'fecha_compra' => 'required|date',
         ];
     }
 }

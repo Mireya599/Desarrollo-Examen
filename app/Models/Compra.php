@@ -26,6 +26,8 @@ class Compra extends Model
     use SoftDeletes;
 
     protected $perPage = 20;
+    protected $dates = ['fecha_compra'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -42,7 +44,7 @@ class Compra extends Model
     {
         return $this->belongsTo(\App\Models\Proveedore::class, 'proveedores_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -50,5 +52,5 @@ class Compra extends Model
     {
         return $this->hasMany(\App\Models\Producto::class, 'id', 'compras_id');
     }
-    
+
 }

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CompraRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Proveedore;
+
 
 class CompraController extends Controller
 {
@@ -28,8 +30,11 @@ class CompraController extends Controller
     public function create(): View
     {
         $compra = new Compra();
+        $proveedores = Proveedore::all();
 
-        return view('compra.create', compact('compra'));
+
+
+        return view('compra.create', compact('compra', 'proveedores'));
     }
 
     /**
@@ -59,8 +64,9 @@ class CompraController extends Controller
     public function edit($id): View
     {
         $compra = Compra::find($id);
+        $proveedores = Proveedore::all();
 
-        return view('compra.edit', compact('compra'));
+        return view('compra.edit', compact('compra', 'proveedores'));
     }
 
     /**
