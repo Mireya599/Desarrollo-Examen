@@ -40,7 +40,7 @@ class ProveedoreController extends Controller
         Proveedore::create($request->validated());
 
         return Redirect::route('proveedores.index')
-            ->with('success', 'Proveedore created successfully.');
+            ->with('success', 'Proveedor creado correctamente.');
     }
 
     /**
@@ -71,7 +71,7 @@ class ProveedoreController extends Controller
         $proveedore->update($request->validated());
 
         return Redirect::route('proveedores.index')
-            ->with('success', 'Proveedore updated successfully');
+            ->with('success', 'Proveerdor actualizado correctamente.');
     }
 
     public function destroy($id): RedirectResponse
@@ -79,6 +79,6 @@ class ProveedoreController extends Controller
         Proveedore::find($id)->delete();
 
         return Redirect::route('proveedores.index')
-            ->with('success', 'Proveedore deleted successfully');
+            ->with('success', 'Proveedor eliminado correctamente.');
     }
 }
