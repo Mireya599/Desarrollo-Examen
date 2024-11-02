@@ -1,8 +1,10 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
-@section('template_title')
-    {{ __('Actualizar') }} Compra
-@endsection
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -11,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-{{--                        <span class="card-title">{{ __('Editar') }} Compra</span>--}}
+                        {{--                        <span class="card-title">{{ __('Editar') }} Compra</span>--}}
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('compras.update', $compra->id) }}"  role="form" enctype="multipart/form-data">
@@ -26,4 +28,13 @@
             </div>
         </div>
     </section>
-@endsection
+@stop
+
+@section('css')
+    {{-- Add here extra stylesheets --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
+
+@section('js')
+    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+@stop

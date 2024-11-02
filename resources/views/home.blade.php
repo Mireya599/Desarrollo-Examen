@@ -3,11 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Proyecto Inventario de Compras</h1>
+    <h1>Bienvenido {{ $username  }}</h1>
 @stop
 
 @section('content')
-    <p>Bienvenido</p>
+    <p>Proyecto de Inventario</p>
 @stop
 
 @section('css')

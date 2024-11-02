@@ -15,9 +15,7 @@
                         <div class="float-left">
 {{--                            <span class="card-title">{{ __('Show') }} Compra</span>--}}
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('compras.index') }}"> {{ __('Back') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white">
@@ -34,7 +32,9 @@
                             <strong>Proveedores Id:</strong>
                             {{ $compra->proveedores_id }}
                         </div>
-
+                        <div class="float-right">
+                            <a class="btn btn-primary btn-sm" href="{{ route('compras.index') }}"> {{ __('Regresar') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

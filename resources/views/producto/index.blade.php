@@ -57,9 +57,9 @@
                                         <td >{{ $producto->nombre }}</td>
                                         <td >{{ $producto->cantidad }}</td>
                                         <td >{{ $producto->precio }}</td>
-                                        <td >{{ $producto->proveedores.nombre }}</td>
-                                        <td >{{ $producto->categorias.nombre }}</td>
-                                        <td >{{ $producto->compras.num_compra }}</td>
+                                        <td >{{ $producto->proveedore->nombre }}</td>
+                                        <td >{{ $producto->categoria->nombre }}</td>
+                                        <td >{{ $producto->compra->num_compra }}</td>
 
                                         <td>
                                             <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">

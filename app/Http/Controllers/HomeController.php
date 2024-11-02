@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $username = auth()->user()->name; // O la manera en que obtengas el nombre del usuario
+        return view('home')->with('username', $username);
+
     }
+
+
 }

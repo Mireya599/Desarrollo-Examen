@@ -16,21 +16,47 @@
             <input type="text" name="precio" class="form-control @error('precio') is-invalid @enderror" value="{{ old('precio', $producto?->precio) }}" id="precio" placeholder="Precio">
             {!! $errors->first('precio', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
+
         <div class="form-group mb-2 mb20">
             <label for="proveedores_id" class="form-label">{{ __('Proveedor') }}</label>
-            <input type="text" name="proveedores_id" class="form-control @error('proveedores_id') is-invalid @enderror" value="{{ old('proveedores_id', $producto?->proveedores_id) }}" id="proveedores_id" placeholder="Proveedores Id">
+            <select name="proveedores_id" class="form-control @error('proveedores_id') is-invalid @enderror" id="proveedores_id">
+                <option value="">Selecciona un proveedor</option>
+                @foreach($proveedores as $proveedor)
+                    <option value="{{ $proveedor->id }}" {{ (old('proveedores_id', $producto?->proveedores_id) == $proveedor->id) ? 'selected' : '' }}>
+                        {{ $proveedor->nombre }}
+                    </option>
+                @endforeach
+            </select>
             {!! $errors->first('proveedores_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
+
+
         <div class="form-group mb-2 mb20">
             <label for="categorias_id" class="form-label">{{ __('Categoria') }}</label>
-            <input type="text" name="categorias_id" class="form-control @error('categorias_id') is-invalid @enderror" value="{{ old('categorias_id', $producto?->categorias_id) }}" id="categorias_id" placeholder="Categorias Id">
+            <select name="categorias_id" class="form-control @error('categorias_id') is-invalid @enderror" id="categorias_id">
+                <option value="">Selecciona una categoría</option>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->id }}" {{ (old('categorias_id', $producto?->categorias_id) == $categoria->id) ? 'selected' : '' }}>
+                        {{ $categoria->nombre }}
+                    </option>
+                @endforeach
+            </select>
             {!! $errors->first('categorias_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
+
         <div class="form-group mb-2 mb20">
             <label for="compras_id" class="form-label">{{ __('Compra') }}</label>
-            <input type="text" name="compras_id" class="form-control @error('compras_id') is-invalid @enderror" value="{{ old('compras_id', $producto?->compras_id) }}" id="compras_id" placeholder="Compras Id">
+            <select name="compras_id" class="form-control @error('compras_id') is-invalid @enderror" id="compras_id">
+                <option value="">Selecciona una compra</option>
+                @foreach($compras as $compra)
+                    <option value="{{ $compra->id }}" {{ (old('compras_id', $producto?->compras_id) == $compra->id) ? 'selected' : '' }}>
+                        {{ $compra->num_compra }}
+                    </option>
+                @endforeach
+            </select>
             {!! $errors->first('compras_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
+
 
     </div>
     <div class="col-md-12 mt20 mt-2">

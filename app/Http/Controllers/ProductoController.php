@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductoRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Proveedore;
+use App\Models\Categoria;
+use App\Models\Compra;
 
 class ProductoController extends Controller
 {
@@ -20,6 +23,7 @@ class ProductoController extends Controller
 
         return view('producto.index', compact('productos'))
             ->with('i', ($request->input('page', 1) - 1) * $productos->perPage());
+
     }
 
     /**
@@ -28,9 +32,12 @@ class ProductoController extends Controller
     public function create(): View
     {
         $producto = new Producto();
-
-        return view('producto.create', compact('producto'));
+        $proveedores = Proveedore::all();
+        $categorias = Categoria::all();
+        $compras = Compra::all();
+        return view('producto.create', compact('producto', 'proveedores', 'categorias', 'compras'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +47,7 @@ class ProductoController extends Controller
         Producto::create($request->validated());
 
         return Redirect::route('productos.index')
-            ->with('success', 'Producto created successfully.');
+            ->with('success', 'Producto creado correctamente.');
     }
 
     /**
@@ -59,8 +66,11 @@ class ProductoController extends Controller
     public function edit($id): View
     {
         $producto = Producto::find($id);
+        $proveedores = Proveedore::all();
+        $categorias = Categoria::all();
+        $compras = Compra::all();
 
-        return view('producto.edit', compact('producto'));
+        return view('producto.edit', compact('producto', 'proveedores', 'categorias', 'compras'));
     }
 
     /**
@@ -71,7 +81,7 @@ class ProductoController extends Controller
         $producto->update($request->validated());
 
         return Redirect::route('productos.index')
-            ->with('success', 'Producto updated successfully');
+            ->with('success', 'Producto actualizado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -79,6 +89,6 @@ class ProductoController extends Controller
         Producto::find($id)->delete();
 
         return Redirect::route('productos.index')
-            ->with('success', 'Producto deleted successfully');
+            ->with('success', 'Producto eliminado correctamente');
     }
 }

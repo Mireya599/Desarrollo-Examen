@@ -26,6 +26,8 @@ class ProductoRequest extends FormRequest
 			'proveedores_id' => 'required',
 			'categorias_id' => 'required',
 			'compras_id' => 'required',
+            'cantidad' => 'required|numeric',
+            'precio' => 'required|numeric',
         ];
     }
 }

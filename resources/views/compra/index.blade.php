@@ -53,7 +53,7 @@
 
                                         <td >{{ $compra->num_compra }}</td>
                                         <td >{{ $compra->fecha_compra }}</td>
-                                        <td >{{ $compra->proveedores_id }}</td>
+                                        <td >{{ $compra->proveedore->nombre }}</td>
 
                                         <td>
                                             <form action="{{ route('compras.destroy', $compra->id) }}" method="POST">

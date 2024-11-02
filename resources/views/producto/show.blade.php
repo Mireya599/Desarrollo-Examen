@@ -15,9 +15,7 @@
                         <div class="float-left">
 {{--                            <span class="card-title">{{ __('Show') }} Producto</span>--}}
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('productos.index') }}"> {{ __('Regresar') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white">
@@ -35,18 +33,20 @@
                             {{ $producto->precio }}
                         </div>
                         <div class="form-group mb-2 mb20">
-                            <strong>Proveedores Id:</strong>
-                            {{ $producto->proveedores_id }}
+                            <strong>Proveedor:</strong>
+                            {{ $producto->proveedore->nombre }}
                         </div>
                         <div class="form-group mb-2 mb20">
-                            <strong>Categorias Id:</strong>
-                            {{ $producto->categorias_id }}
+                            <strong>Categoria:</strong>
+                            {{ $producto->categoria->nombre }}
                         </div>
                         <div class="form-group mb-2 mb20">
-                            <strong>Compras Id:</strong>
-                            {{ $producto->compras_id }}
+                            <strong>Compra:</strong>
+                            {{ $producto->compra->num_compra }}
                         </div>
-
+                        <div class="float-right">
+                            <a class="btn btn-primary btn-sm" href="{{ route('productos.index') }}"> {{ __('Regresar') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
